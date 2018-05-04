@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TASK</title>
+    <style media="screen">
+        #delete{
+            display: none;
+        }
+        .selected {
+            background: yellow;
+        }
+    </style>
+
+</head>
+<body>
+<!--<form class="form" id="form">-->
+    <!--<input id="input" type="text" name="name" value="">-->
+    <!--<button id="add" type="submit" name="button">+</button>-->
+    <!--<button id="delete" type="button" name="button">-</button>-->
+<!--</form>-->
+<script src="main.js"></script>
+<script type="text/javascript">
+    let list1 = new List(document.body, {
+        shift: true,
+        ctrl: true,
+        parentElement: 'ul',
+        itemElement: 'li',
+        arrOfItems: ['1', '2', '3']
+    });
+</script>
+</body>
+</html>
