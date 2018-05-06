@@ -53,6 +53,7 @@ class List {
 
     deleteElement() {
         let selectedElem = [].slice.call(this.selectedElements);
+        // console.log(selectedElem);
         for (let i = 0; i < selectedElem.length; i++) {
             selectedElem[i].parentNode.removeChild(selectedElem[i]);
         }
@@ -61,9 +62,24 @@ class List {
 
     setSelection(e) {
         if("LI" == e.target.tagName) {
-            e.target.classList.add("selected");
-            this.displayDelete();
+            if (this.options.ctrl && e.ctrlKey) {
+                this.ctrlSelect(e);
+            } else {
+                this.liSelect(e);
+            }
         }
+        this.displayDelete();
+    }
+    liSelect(e) {
+        let selected = [].slice.call(this.list.children);
+        for (let e = 0; e < selected.length; e++) {
+            selected[e].classList.remove("selected");
+        }
+        e.target.classList.toggle("selected");
+    }
+
+    ctrlSelect(e) {
+        e.target.classList.toggle("selected");
 
     }
     displayDelete()
